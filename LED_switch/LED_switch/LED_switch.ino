@@ -15,9 +15,10 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   Serial.println(digitalRead(BUTTON_PIN));
-  if (digitalRead(BUTTON_PIN) == HIGH) {
-    digitalWrite(LED_PIN, LOW);
-  } else {
+  bool pressed = digitalRead(BUTTON_PIN) == LOW;
+  if (pressed) {
     digitalWrite(LED_PIN, HIGH);
+  } else {
+    digitalWrite(LED_PIN, LOW);
   }
 }
