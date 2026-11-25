@@ -1,16 +1,20 @@
 #include <Servo.h>
 
 Servo myServo;
+int ServoPin = 6;
+int SensorPin = A0;
 
 void setup() {
   // put your setup code here, to run once:
-  myServo.attach(6);
+  Serial.begin(9600);
+  myServo.attach(ServoPin);
+  pinMode(ServoPin, OUTPUT);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  for (int angle = 0; angle <= 180; angle++) {
-    myServo.write(angle);
-    delay(15);
-  }
+  int knob = analogRead(SensorPin);
+  myServo.write(map(knob, 0, 1023, 0 , 180));
+  Serial.println(map(knob, 0, 1023, 0 , 180));
+  delay(50);
 }
