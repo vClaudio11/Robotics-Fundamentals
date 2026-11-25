@@ -1,14 +1,13 @@
 #include <Servo.h>
 
 Servo myServo;
-int ServoPin = 6;
-int SensorPin = A0;
+const int ServoPin = 6;
+const int SensorPin = A0;
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   myServo.attach(ServoPin);
-  pinMode(ServoPin, OUTPUT);
 }
 
 void loop() {
