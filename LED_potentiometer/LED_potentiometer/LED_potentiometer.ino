@@ -11,7 +11,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   int knob = analogRead(sensorPin);
   int knob_converted = (knob / 4);
-  analogWrite(LedPin, knob_converted);
+  analogWrite(LedPin, map(knob, 0, 1023, 0 ,255));
   Serial.println(knob);
   delay(50);
 }
