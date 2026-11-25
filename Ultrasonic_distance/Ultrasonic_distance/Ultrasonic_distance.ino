@@ -15,8 +15,16 @@ void loop() {
   digitalWrite(TrigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(TrigPin, LOW);
-  float time = pulseIn(EchoPin, HIGH, 30000);
-  float distance = (time/58);
-  Serial.println(distance);
+
+  // return 0 after 12000 microseconds which is appoximately 206cm
+  unsigned long duration = pulseIn(EchoPin, HIGH, 12000);
+  float distance = (duration/58);
+
+  if (duration == 0) {
+    Serial.println("no echo");
+  } else {
+    Serial.println(distance);
+  }
+  
   delay(60);
 }
