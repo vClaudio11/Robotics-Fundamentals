@@ -18,7 +18,7 @@ void loop() {
 
   // return 0 after 12000 microseconds which is appoximately 206cm
   unsigned long duration = pulseIn(EchoPin, HIGH, 12000);
-  float distance = (duration/58);
+  float distance = (duration/58.0);
 
   if (duration == 0) {
     Serial.println("no echo");
